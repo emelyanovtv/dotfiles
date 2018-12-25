@@ -1,8 +1,5 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/timofey-em/.oh-my-zsh"
+export ZSH="/Users/timofey/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -178,8 +175,6 @@ alias ls='colorls -lA --sd --report'
 
 #ностальгия по wget
 alias wget="curl -O"
-export PATH=$PATH:/Users/timofey-em/projects/local-sandbox/bin
-export PATH="$PATH:/Users/timofey-em/projects/arcadia/arcadia"
 
 export NVM_DIR="$HOME/.nvm"
 source /usr/local/opt/nvm/nvm.sh
