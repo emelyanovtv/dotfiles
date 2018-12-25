@@ -84,5 +84,3 @@ alias glg='git log --graph --oneline --decorate --all'
 
 #ностальгия по wget
 alias wget="curl -O"
-export PATH=$PATH:/Users/timofey-em/projects/local-sandbox/bin
-export PATH="$PATH:/Users/timofey-em/projects/arcadia/arcadia"
