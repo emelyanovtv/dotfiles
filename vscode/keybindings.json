@@ -1,0 +1,31 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "ctrl+cmd+n",
+    "command": "workbench.action.newWindow"
+  },
+  {
+    "key": "shift+cmd+n",
+    "command": "-workbench.action.newWindow"
+  },
+  {
+    "key": "shift+cmd+n",
+    "command": "explorer.newFolder"
+  },
+  {
+    "key": "cmd+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "alt+w",
+    "command": "workbench.action.switchWindow"
+  },
+  {
+      "key": "ctrl+`",
+      "command": "workbench.action.terminal.focus"},
+  {
+    "key": "ctrl+`",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  }
+]

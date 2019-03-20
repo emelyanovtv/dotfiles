@@ -1,27 +1,81 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/timofey/.oh-my-zsh"
+export ZSH="/Users/emelyanov/.oh-my-zsh"
+export PATH=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin:/usr/local/bin:$PATH
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
 
-# Customise the Powerlevel9k prompts
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-  dir
-  node_version
-  vcs
-  newline
-  status
-)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-# Load Nerd Fonts with Powerlevel9k theme for Zsh
+
+# Must have a nerd font installed - mono fonts tend to have spacing issues - https://github.com/ryanoasis/nerd-fonts
 POWERLEVEL9K_MODE='nerdfont-complete'
-source ${ZSH}/custom/themes/powerlevel9k/powerlevel9k.zsh-theme
 
-POWERLEVEL9K_NODE_VERSION_BACKGROUND=red3
+ZSH_THEME='powerlevel9k/powerlevel9k'
+
+# Prompt Options
+POWERLEVEL9K_PROMPT_ON_NEWLINE=false
+POWERLEVEL9K_HIDE_BRANCH_ICON=true
+
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\ue0c0'
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status user dir vcs dir_writable)
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=' \ue0c2'
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time node_version)
+
+# Last Command Status Segment
+POWERLEVEL9K_OK_ICON='\uf179'
+POWERLEVEL9K_STATUS_OK_BACKGROUND='dodgerblue2'
+POWERLEVEL9K_STATUS_OK_FOREGROUND='white'
+
+POWERLEVEL9K_FAIL_ICON='\uf119'
+POWERLEVEL9K_STATUS_CROSS=true
+POWERLEVEL9K_STATUS_ERROR_BACKGROUND='red'
+POWERLEVEL9K_STATUS_ERROR_FOREGROUND='253'
+
+# Directory Segment
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_DIR_PATH_SEPARATOR=$(echo -n " \uE0B1 ")
+
+POWERLEVEL9K_DIR_HOME_BACKGROUND='028'
+POWERLEVEL9K_DIR_HOME_FOREGROUND="253"
+
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='022'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="253"
+
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="253"
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="028"
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="253"
+
+# Version Control Section
+POWERLEVEL9K_VCS_GIT_ICON='\ue708'
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\ue708'
+# Advanced `vcs` color customization
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='blue'
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='yellow'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='black'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='black'
+
+# Advanced `vi_mode` color customization
+POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='teal'
+
+# Execution Time Segment
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='196'
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='253'
+
+POWERLEVEL9K_USER_ICON="\uF415" # 
+POWERLEVEL9K_USER_DEFAULT_FOREGROUND='white'
+POWERLEVEL9K_USER_DEFAULT_BACKGROUND="black"
+POWERLEVEL9K_ROOT_ICON="#"
+POWERLEVEL9K_SUDO_ICON=$'\uF09C' # 
+
+# NVM Version Segment
+POWERLEVEL9K_NODE_ICON='\uf898'
+POWERLEVEL9K_NODE_VERSION_BACKGROUND='202'
+POWERLEVEL9K_NODE_VERSION_FOREGROUND='253'
+
 
 POWERLEVEL9K_VCS_SHOW_SUBMODULE_DIRTY=false
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-untracked git-aheadbehind git-remotebranch git-tagname)
@@ -83,7 +137,6 @@ plugins=(
   node
   npm
   osx
-  docker
   zsh-autosuggestions
 )
 
@@ -177,6 +230,7 @@ alias ls='colorls -lA --sd --report'
 alias wget="curl -O"
 
 export NVM_DIR="$HOME/.nvm"
-source /usr/local/opt/nvm/nvm.sh
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nv
 
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
