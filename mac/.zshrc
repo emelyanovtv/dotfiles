@@ -234,3 +234,15 @@ export NVM_DIR="${HOME}/.nvm"
 [ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"  # This loads nv
 
 source ${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# eksctl
+fpath=($fpath ~/.zsh/completion)
+
+alias postman='open -a "Postman.app"'
+alias k8s-not-ready-pods="watch 'kubectl get pods --all-namespaces | grep -v \" Running \" | grep -v \" Completed\"'"
+
+alias get_nodes='kubectl get nodes --label-columns=failure-domain.beta.kubernetes.io/zone,alpha.eksctl.io/nodegroup-name,beta.kubernetes.io/instance-type,lifecycle,gpu,ansible,nodegroup-type'
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
